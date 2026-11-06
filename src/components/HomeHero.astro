@@ -1,0 +1,305 @@
+<style>
+  section {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    overflow: hidden;
+    background: #24262a;
+  }
+
+  .hero__lightning,
+  .hero__smoke {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .hero__lightning {
+    z-index: 1;
+  }
+
+  .hero__smoke {
+    z-index: 3;
+  }
+
+  @keyframes logo-emerge {
+    from {
+      opacity: 0;
+      filter: blur(24px) drop-shadow(0 0 24px rgb(36 91 255 / 30%));
+    }
+    to {
+      opacity: 1;
+      filter: blur(0) drop-shadow(0 0 24px rgb(36 91 255 / 30%));
+    }
+  }
+
+  .hero__logo {
+    position: relative;
+    z-index: 2;
+    display: block;
+    grid-area: 1 / 1;
+    width: 448px;
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 24px rgb(36 91 255 / 30%));
+    animation: logo-emerge 1.7s 0.4s both linear;
+  }
+
+  .bolt {
+    fill: none;
+    stroke: #245bff;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0;
+    filter: drop-shadow(0 0 5px #245bff) drop-shadow(0 0 15px #1643d8);
+    animation: lightning-burst-one 9s infinite;
+  }
+
+  .bolt__glow {
+    fill: none;
+    stroke: #245bff;
+    stroke-width: 10;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: blur(4px) drop-shadow(0 0 14px #245bff);
+  }
+
+  .bolt__core {
+    fill: none;
+    stroke: #f3f3f3;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 5px #fff) drop-shadow(0 0 12px #245bff);
+  }
+
+  .smoke {
+    opacity: 0;
+    filter: url(#smoke-blur);
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: smoke-clear 1.7s 0.4s both linear;
+  }
+
+  .smoke__cloud {
+    fill: url(#smoke-gradient);
+  }
+
+  @keyframes smoke-clear {
+    0%,
+    100% {
+      opacity: 0;
+      transform: translateY(8px) scale(0.9);
+    }
+    25% {
+      opacity: 0.4;
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      opacity: 0.2;
+      transform: translateY(-8px) scale(1.25);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-16px) scale(1.5);
+    }
+  }
+
+  .bolt--two {
+    animation-name: lightning-burst-two;
+  }
+  .bolt--three {
+    animation-name: lightning-burst-three;
+  }
+
+  @keyframes lightning-burst-one {
+    0%,
+    4%,
+    100% {
+      opacity: 0;
+    }
+    0.3% {
+      opacity: 1;
+    }
+    0.65% {
+      opacity: 0.2;
+    }
+    0.95% {
+      opacity: 0.85;
+    }
+    1.25% {
+      opacity: 0;
+    }
+    41% {
+      opacity: 0;
+    }
+    42% {
+      opacity: 1;
+    }
+    43% {
+      opacity: 0.2;
+    }
+    44% {
+      opacity: 0.85;
+    }
+    45% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes lightning-burst-two {
+    0%,
+    1.5%,
+    4%,
+    100% {
+      opacity: 0;
+    }
+    1.8% {
+      opacity: 1;
+    }
+    2.15% {
+      opacity: 0.2;
+    }
+    2.45% {
+      opacity: 0.85;
+    }
+    2.75% {
+      opacity: 0;
+    }
+    53.5% {
+      opacity: 0;
+    }
+    54.5% {
+      opacity: 1;
+    }
+    55.5% {
+      opacity: 0.2;
+    }
+    56.5% {
+      opacity: 0.85;
+    }
+    57.5% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes lightning-burst-three {
+    0%,
+    4%,
+    100% {
+      opacity: 0;
+    }
+    3%,
+    3.2%,
+    4% {
+      opacity: 0;
+    }
+    3.3% {
+      opacity: 1;
+    }
+    3.65% {
+      opacity: 0.2;
+    }
+    3.95% {
+      opacity: 0.85;
+    }
+    4.25% {
+      opacity: 0;
+    }
+    66% {
+      opacity: 0;
+    }
+    67% {
+      opacity: 1;
+    }
+    68% {
+      opacity: 0.2;
+    }
+    69% {
+      opacity: 0.85;
+    }
+    70% {
+      opacity: 0;
+    }
+  }
+</style>
+
+<section>
+  <svg
+    class="hero__lightning"
+    viewBox="0 0 1200 560"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <g class="bolt bolt--one">
+      <path
+        class="bolt__glow"
+        d="M-20 82 88 126 61 148 198 176 170 198 326 224 299 246 455 270 428 292 586 314 557 336 720 354 691 376 856 394 827 416 988 435 959 457 1100 477 1074 497 1220 520 M198 176 179 118 129 86 M326 224 359 171 411 145 M586 314 568 253 527 222 M720 354 755 303 809 278 M988 435 967 381 919 350 M1100 477 1138 431 1188 405"
+      />
+      <path
+        class="bolt__core"
+        d="M-20 82 88 126 61 148 198 176 170 198 326 224 299 246 455 270 428 292 586 314 557 336 720 354 691 376 856 394 827 416 988 435 959 457 1100 477 1074 497 1220 520 M198 176 179 118 129 86 M326 224 359 171 411 145 M586 314 568 253 527 222 M720 354 755 303 809 278 M988 435 967 381 919 350 M1100 477 1138 431 1188 405"
+      />
+    </g>
+    <g class="bolt bolt--two">
+      <path
+        class="bolt__glow"
+        d="M-20 480 106 443 78 421 244 393 214 371 374 344 346 322 510 295 481 273 644 246 615 224 778 198 748 176 914 151 885 129 1047 102 1019 80 1220 42 M244 393 266 449 316 478 M510 295 488 235 444 201 M778 198 804 252 858 283 M914 151 895 91 851 56 M1047 102 1074 154 1129 181"
+      />
+      <path
+        class="bolt__core"
+        d="M-20 480 106 443 78 421 244 393 214 371 374 344 346 322 510 295 481 273 644 246 615 224 778 198 748 176 914 151 885 129 1047 102 1019 80 1220 42 M244 393 266 449 316 478 M510 295 488 235 444 201 M778 198 804 252 858 283 M914 151 895 91 851 56 M1047 102 1074 154 1129 181"
+      />
+    </g>
+    <g class="bolt bolt--three">
+      <path
+        class="bolt__glow"
+        d="M-20 282 121 252 92 232 255 207 226 187 390 165 361 145 525 124 496 104 660 124 632 145 797 168 768 188 933 212 904 232 1068 257 1039 277 1220 307 M255 207 243 151 207 112 M525 124 559 75 616 52 M797 168 779 111 735 77 M933 212 970 163 1025 139 M1068 257 1084 313 1137 344"
+      />
+      <path
+        class="bolt__core"
+        d="M-20 282 121 252 92 232 255 207 226 187 390 165 361 145 525 124 496 104 660 124 632 145 797 168 768 188 933 212 904 232 1068 257 1039 277 1220 307 M255 207 243 151 207 112 M525 124 559 75 616 52 M797 168 779 111 735 77 M933 212 970 163 1025 139 M1068 257 1084 313 1137 344"
+      />
+    </g>
+  </svg>
+
+  <img
+    class="hero__logo"
+    src="/psybots-logo.avif"
+    alt="Psybots Robotics logo"
+    height="448"
+    width="448"
+  />
+  <h1 class="visually-hidden">Psybots 36711</h1>
+
+  <svg
+    class="hero__smoke"
+    viewBox="0 0 1200 560"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <defs>
+      <radialGradient id="smoke-gradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#858c9a" stop-opacity="0.55" />
+        <stop offset="58%" stop-color="#525c6d" stop-opacity="0.34" />
+        <stop offset="100%" stop-color="#525c6d" stop-opacity="0" />
+      </radialGradient>
+      <filter id="smoke-blur" x="-30%" y="-50%" width="160%" height="200%">
+        <feGaussianBlur stdDeviation="22" />
+      </filter>
+    </defs>
+    <g class="smoke">
+      <ellipse class="smoke__cloud" cx="600" cy="280" rx="390" ry="138" />
+      <ellipse class="smoke__cloud" cx="470" cy="260" rx="250" ry="108" />
+      <ellipse class="smoke__cloud" cx="735" cy="310" rx="265" ry="114" />
+      <ellipse class="smoke__cloud" cx="585" cy="205" rx="285" ry="100" />
+      <ellipse class="smoke__cloud" cx="620" cy="365" rx="305" ry="112" />
+    </g>
+  </svg>
+</section>

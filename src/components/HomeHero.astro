@@ -51,12 +51,9 @@
 
   .bolt {
     fill: none;
-    stroke: #245bff;
+    opacity: 0;
     stroke-linecap: round;
     stroke-linejoin: round;
-    opacity: 0;
-    filter: drop-shadow(0 0 5px #245bff) drop-shadow(0 0 15px #1643d8);
-    animation: lightning-burst-one 9s infinite;
   }
 
   .bolt__glow {
@@ -108,124 +105,6 @@
       transform: translateY(-16px) scale(1.5);
     }
   }
-
-  .bolt--two {
-    animation-name: lightning-burst-two;
-  }
-  .bolt--three {
-    animation-name: lightning-burst-three;
-  }
-
-  @keyframes lightning-burst-one {
-    0%,
-    4%,
-    100% {
-      opacity: 0;
-    }
-    0.3% {
-      opacity: 1;
-    }
-    0.65% {
-      opacity: 0.2;
-    }
-    0.95% {
-      opacity: 0.85;
-    }
-    1.25% {
-      opacity: 0;
-    }
-    41% {
-      opacity: 0;
-    }
-    42% {
-      opacity: 1;
-    }
-    43% {
-      opacity: 0.2;
-    }
-    44% {
-      opacity: 0.85;
-    }
-    45% {
-      opacity: 0;
-    }
-  }
-
-  @keyframes lightning-burst-two {
-    0%,
-    1.5%,
-    4%,
-    100% {
-      opacity: 0;
-    }
-    1.8% {
-      opacity: 1;
-    }
-    2.15% {
-      opacity: 0.2;
-    }
-    2.45% {
-      opacity: 0.85;
-    }
-    2.75% {
-      opacity: 0;
-    }
-    53.5% {
-      opacity: 0;
-    }
-    54.5% {
-      opacity: 1;
-    }
-    55.5% {
-      opacity: 0.2;
-    }
-    56.5% {
-      opacity: 0.85;
-    }
-    57.5% {
-      opacity: 0;
-    }
-  }
-
-  @keyframes lightning-burst-three {
-    0%,
-    4%,
-    100% {
-      opacity: 0;
-    }
-    3%,
-    3.2%,
-    4% {
-      opacity: 0;
-    }
-    3.3% {
-      opacity: 1;
-    }
-    3.65% {
-      opacity: 0.2;
-    }
-    3.95% {
-      opacity: 0.85;
-    }
-    4.25% {
-      opacity: 0;
-    }
-    66% {
-      opacity: 0;
-    }
-    67% {
-      opacity: 1;
-    }
-    68% {
-      opacity: 0.2;
-    }
-    69% {
-      opacity: 0.85;
-    }
-    70% {
-      opacity: 0;
-    }
-  }
 </style>
 
 <section>
@@ -236,36 +115,12 @@
     aria-hidden="true"
     focusable="false"
   >
-    <g class="bolt bolt--one">
-      <path
-        class="bolt__glow"
-        d="M-20 82 88 126 61 148 198 176 170 198 326 224 299 246 455 270 428 292 586 314 557 336 720 354 691 376 856 394 827 416 988 435 959 457 1100 477 1074 497 1220 520 M198 176 179 118 129 86 M326 224 359 171 411 145 M586 314 568 253 527 222 M720 354 755 303 809 278 M988 435 967 381 919 350 M1100 477 1138 431 1188 405"
-      />
-      <path
-        class="bolt__core"
-        d="M-20 82 88 126 61 148 198 176 170 198 326 224 299 246 455 270 428 292 586 314 557 336 720 354 691 376 856 394 827 416 988 435 959 457 1100 477 1074 497 1220 520 M198 176 179 118 129 86 M326 224 359 171 411 145 M586 314 568 253 527 222 M720 354 755 303 809 278 M988 435 967 381 919 350 M1100 477 1138 431 1188 405"
-      />
-    </g>
-    <g class="bolt bolt--two">
-      <path
-        class="bolt__glow"
-        d="M-20 480 106 443 78 421 244 393 214 371 374 344 346 322 510 295 481 273 644 246 615 224 778 198 748 176 914 151 885 129 1047 102 1019 80 1220 42 M244 393 266 449 316 478 M510 295 488 235 444 201 M778 198 804 252 858 283 M914 151 895 91 851 56 M1047 102 1074 154 1129 181"
-      />
-      <path
-        class="bolt__core"
-        d="M-20 480 106 443 78 421 244 393 214 371 374 344 346 322 510 295 481 273 644 246 615 224 778 198 748 176 914 151 885 129 1047 102 1019 80 1220 42 M244 393 266 449 316 478 M510 295 488 235 444 201 M778 198 804 252 858 283 M914 151 895 91 851 56 M1047 102 1074 154 1129 181"
-      />
-    </g>
-    <g class="bolt bolt--three">
-      <path
-        class="bolt__glow"
-        d="M-20 282 121 252 92 232 255 207 226 187 390 165 361 145 525 124 496 104 660 124 632 145 797 168 768 188 933 212 904 232 1068 257 1039 277 1220 307 M255 207 243 151 207 112 M525 124 559 75 616 52 M797 168 779 111 735 77 M933 212 970 163 1025 139 M1068 257 1084 313 1137 344"
-      />
-      <path
-        class="bolt__core"
-        d="M-20 282 121 252 92 232 255 207 226 187 390 165 361 145 525 124 496 104 660 124 632 145 797 168 768 188 933 212 904 232 1068 257 1039 277 1220 307 M255 207 243 151 207 112 M525 124 559 75 616 52 M797 168 779 111 735 77 M933 212 970 163 1025 139 M1068 257 1084 313 1137 344"
-      />
-    </g>
+    {[0, 1, 2].map((slot) => (
+      <g class="bolt" data-lightning-bolt={slot}>
+        <path class="bolt__glow" />
+        <path class="bolt__core" />
+      </g>
+    ))}
   </svg>
 
   <img
@@ -303,3 +158,69 @@
     </g>
   </svg>
 </section>
+
+<script>
+  import { pickBoltDesign } from "../utils/lightning";
+
+  const boltGroups = Array.from(
+    document.querySelectorAll<SVGGElement>("[data-lightning-bolt]"),
+  );
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  if (boltGroups.length === 3 && !prefersReducedMotion) {
+    let previousDesign = -1;
+    const cycleDuration = 9000;
+    const strikeTimes = [0, 150, 300, 3780, 4905, 6030];
+    const timers = new Set<number>();
+
+    function fireStrike(slot: number) {
+      const group = boltGroups[slot];
+      const design = pickBoltDesign(previousDesign);
+      previousDesign = design.index;
+
+      group.querySelectorAll<SVGPathElement>("path").forEach((path) => {
+        path.setAttribute("d", design.path);
+      });
+      group.removeAttribute("transform");
+      group.animate(
+        [
+          { opacity: 0, offset: 0 },
+          { opacity: 1, offset: 0.12 },
+          { opacity: 0.18, offset: 0.42 },
+          { opacity: 0.9, offset: 0.62 },
+          { opacity: 0, offset: 1 },
+        ],
+        { duration: 300, easing: "linear", fill: "none" },
+      );
+    }
+
+    function scheduleCycle(cycleStart: number) {
+      strikeTimes.forEach((time, index) => {
+        const delay = Math.max(0, cycleStart + time - performance.now());
+        const timer = window.setTimeout(() => {
+          timers.delete(timer);
+          fireStrike(index % boltGroups.length);
+        }, delay);
+        timers.add(timer);
+      });
+
+      const nextCycle = window.setTimeout(
+        () => {
+          timers.delete(nextCycle);
+          scheduleCycle(cycleStart + cycleDuration);
+        },
+        Math.max(0, cycleStart + cycleDuration - performance.now()),
+      );
+      timers.add(nextCycle);
+    }
+
+    scheduleCycle(performance.now());
+    window.addEventListener(
+      "pagehide",
+      () => timers.forEach((timer) => window.clearTimeout(timer)),
+      { once: true },
+    );
+  }
+</script>

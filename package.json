@@ -5,8 +5,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "format": "prettier --write \"src/**/*.astro\"",
-    "format:check": "prettier --check \"src/**/*.astro\""
+    "format": "prettier --write \"src/**/*.{astro,ts,css}\"",
+    "format:check": "prettier --check \"src/**/*.{astro,ts,css}\""
   },
   "dependencies": {
     "astro": "^7.4.7"

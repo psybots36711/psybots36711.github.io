@@ -1,0 +1,226 @@
+<style>
+  section {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    overflow: hidden;
+    background: #24262a;
+  }
+
+  .lightning,
+  .smoke-layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .lightning {
+    z-index: 1;
+  }
+
+  .smoke-layer {
+    z-index: 3;
+  }
+
+  @keyframes logo-emerge {
+    from {
+      opacity: 0;
+      filter: blur(24px) drop-shadow(0 0 24px rgb(36 91 255 / 30%));
+    }
+    to {
+      opacity: 1;
+      filter: blur(0) drop-shadow(0 0 24px rgb(36 91 255 / 30%));
+    }
+  }
+
+  .logo {
+    position: relative;
+    z-index: 2;
+    display: block;
+    grid-area: 1 / 1;
+    width: 448px;
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 24px rgb(36 91 255 / 30%));
+    animation: logo-emerge 1.7s 0.4s both linear;
+  }
+
+  .bolt {
+    fill: none;
+    opacity: 0;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .glow {
+    fill: none;
+    stroke: #245bff;
+    stroke-width: 10;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: blur(4px) drop-shadow(0 0 14px #245bff);
+  }
+
+  .core {
+    fill: none;
+    stroke: #f3f3f3;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 5px #fff) drop-shadow(0 0 12px #245bff);
+  }
+
+  .smoke {
+    opacity: 0;
+    filter: url(#smoke-blur);
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: smoke-clear 1.7s 0.4s both linear;
+  }
+
+  .cloud {
+    fill: url(#smoke-gradient);
+  }
+
+  @keyframes smoke-clear {
+    0%,
+    100% {
+      opacity: 0;
+      transform: translateY(8px) scale(0.9);
+    }
+    25% {
+      opacity: 0.4;
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      opacity: 0.2;
+      transform: translateY(-8px) scale(1.25);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-16px) scale(1.5);
+    }
+  }
+</style>
+
+<section>
+  <svg
+    class="lightning"
+    viewBox="0 0 1200 560"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+    focusable="false"
+  >
+    {[0, 1, 2].map((slot) => (
+      <g class="bolt" data-lightning-bolt={slot}>
+        <path class="glow" />
+        <path class="core" />
+      </g>
+    ))}
+  </svg>
+
+  <img
+    class="logo"
+    src="/psybots-logo.avif"
+    alt="Psybots Robotics logo"
+    height="448"
+    width="448"
+  />
+  <h1 class="visually-hidden">Psybots 36711</h1>
+
+  <svg
+    class="smoke-layer"
+    viewBox="0 0 1200 560"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <defs>
+      <radialGradient id="smoke-gradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#858c9a" stop-opacity="0.55" />
+        <stop offset="58%" stop-color="#525c6d" stop-opacity="0.34" />
+        <stop offset="100%" stop-color="#525c6d" stop-opacity="0" />
+      </radialGradient>
+      <filter id="smoke-blur" x="-30%" y="-50%" width="160%" height="200%">
+        <feGaussianBlur stdDeviation="22" />
+      </filter>
+    </defs>
+    <g class="smoke">
+      <ellipse class="cloud" cx="600" cy="280" rx="390" ry="138" />
+      <ellipse class="cloud" cx="470" cy="260" rx="250" ry="108" />
+      <ellipse class="cloud" cx="735" cy="310" rx="265" ry="114" />
+      <ellipse class="cloud" cx="585" cy="205" rx="285" ry="100" />
+      <ellipse class="cloud" cx="620" cy="365" rx="305" ry="112" />
+    </g>
+  </svg>
+</section>
+
+<script>
+  import { pickBoltDesign } from "@/utils/lightning";
+
+  const boltGroups = Array.from(
+    document.querySelectorAll<SVGGElement>("[data-lightning-bolt]"),
+  );
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  if (boltGroups.length === 3 && !prefersReducedMotion) {
+    let previousDesign = -1;
+    const cycleDuration = 9000;
+    const strikeTimes = [0, 150, 300, 3780, 4905, 6030];
+    const timers = new Set<number>();
+
+    function fireStrike(slot: number) {
+      const group = boltGroups[slot];
+      const design = pickBoltDesign(previousDesign);
+      previousDesign = design.index;
+
+      group.querySelectorAll<SVGPathElement>("path").forEach((path) => {
+        path.setAttribute("d", design.path);
+      });
+      group.removeAttribute("transform");
+      group.animate(
+        [
+          { opacity: 0, offset: 0 },
+          { opacity: 1, offset: 0.12 },
+          { opacity: 0.18, offset: 0.42 },
+          { opacity: 0.9, offset: 0.62 },
+          { opacity: 0, offset: 1 },
+        ],
+        { duration: 300, easing: "linear", fill: "none" },
+      );
+    }
+
+    function scheduleCycle(cycleStart: number) {
+      strikeTimes.forEach((time, index) => {
+        const delay = Math.max(0, cycleStart + time - performance.now());
+        const timer = window.setTimeout(() => {
+          timers.delete(timer);
+          fireStrike(index % boltGroups.length);
+        }, delay);
+        timers.add(timer);
+      });
+
+      const nextCycle = window.setTimeout(
+        () => {
+          timers.delete(nextCycle);
+          scheduleCycle(cycleStart + cycleDuration);
+        },
+        Math.max(0, cycleStart + cycleDuration - performance.now()),
+      );
+      timers.add(nextCycle);
+    }
+
+    scheduleCycle(performance.now());
+    window.addEventListener(
+      "pagehide",
+      () => timers.forEach((timer) => window.clearTimeout(timer)),
+      { once: true },
+    );
+  }
+</script>

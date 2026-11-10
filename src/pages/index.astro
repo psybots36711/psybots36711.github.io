@@ -1,24 +1,80 @@
+---
+import HomeHero from "@/components/HomeHero.astro";
+import CircuitSvg from "@/components/CircuitSvg.astro";
+import "@/styles/global.css";
+---
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="The Psybots robotics team website." />
+    <meta name="theme-color" content="#10131a" />
     <title>Psybots Robotics</title>
     <style>
-      :root { font-family: system-ui, sans-serif; color: #f4f4f5; background: #10131a; }
-      body { min-height: 100vh; margin: 0; display: grid; place-items: center; }
-      main { max-width: 42rem; padding: 3rem 1.5rem; text-align: center; }
-      p { color: #b8c0cc; line-height: 1.6; }
-      h1 { margin: 0; font-size: clamp(2.5rem, 8vw, 5rem); letter-spacing: -0.06em; }
-      .tag { color: #70e0b1; font-size: .85rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+      .team-section {
+        min-height: 320px;
+        padding: 48px 24px;
+        background-color: #111214;
+        width: 66ch;
+        max-width: 100%;
+        height: 2000px;
+        margin: 0 auto;
+      }
     </style>
   </head>
   <body>
     <main>
-      <p class="tag">Psybots Robotics</p>
-      <h1>Hello, world!</h1>
-      <p>We’re the Psybots robotics team. Our new website is under construction.</p>
+      <HomeHero />
+      <section class="team-section">
+        <h2>Team 36711</h2>
+        <p>We’re a robotics team building, learning, and competing together.</p>
+        <p>Our new website is under construction</p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipiscing elit. Magna
+          accusamus sunt provident labore eu ut nulla deleniti cum adipiscing
+          ducimus sint. Officia iusto dignissimos excepteur maxime cupidatat do
+          voluptas omnis incididunt eum est qui. Occaecat soluta placeat
+          voluptatum consectetur adipiscing dolore occaecat voluptatum sunt
+          dolorum consequatur.
+        </p>
+
+        <p>
+          Occaecat voluptate in mollitia aut assumenda. Fuga cupidatat id
+          laborum expedita voluptas ullamco ea. Quis culpa omnis laborum in
+          cumque tempor deleniti et expedita elit.
+        </p>
+
+        <p>
+          Culpa atque quo nihil adipiscing tempore qui. In et et consequatur at
+          sed id. Cillum ex quidem dolorem ducimus cupidatat. Et sint molestias
+          quas ullamco assumenda dolorum.
+        </p>
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipiscing elit. Magna
+          accusamus sunt provident labore eu ut nulla deleniti cum adipiscing
+          ducimus sint. Officia iusto dignissimos excepteur maxime cupidatat do
+          voluptas omnis incididunt eum est qui. Occaecat soluta placeat
+          voluptatum consectetur adipiscing dolore occaecat voluptatum sunt
+          dolorum consequatur.
+        </p>
+
+        <p>
+          Occaecat voluptate in mollitia aut assumenda. Fuga cupidatat id
+          laborum expedita voluptas ullamco ea. Quis culpa omnis laborum in
+          cumque tempor deleniti et expedita elit.
+        </p>
+
+        <p>
+          Culpa atque quo nihil adipiscing tempore qui. In et et consequatur at
+          sed id. Cillum ex quidem dolorem ducimus cupidatat. Et sint molestias
+          quas ullamco assumenda dolorum.
+        </p>
+
+        <CircuitSvg />
+      </section>
     </main>
   </body>
 </html>

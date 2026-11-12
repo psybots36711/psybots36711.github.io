@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
 
 :root {
+  font-size: 16px;
   color: #f3f3f3;
   background: #111214;
 }

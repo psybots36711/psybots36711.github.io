@@ -24,13 +24,12 @@ const year = new Date().getFullYear();
     gap: 16px;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 16px 24px;
+    padding: 16px;
   }
 
-  @media (max-width: 420px) {
+  @media (width > 420px) {
     .footer-inner {
-      padding-right: 16px;
-      padding-left: 16px;
+      padding: 16px 24px;
     }
   }
 </style>

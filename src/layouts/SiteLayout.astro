@@ -1,7 +1,7 @@
 ---
 import SiteNav from "@/components/SiteNav.astro";
 import SiteFooter from "@/components/SiteFooter.astro";
-import CircuitSvg from "@/components/CircuitSvg.astro";
+import SiteCircuit from "@/components/SiteCircuit.astro";
 import "@/styles/global.css";
 
 interface Props {
@@ -21,29 +21,32 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#111214" />
     <link rel="icon" type="image/avif" href="/psybots-favicon.avif" />
     <title>{title}</title>
   </head>
   <body>
-    <div class="site-layout">
-      <SiteNav class="site-nav" />
-      <main class="site-main">
-        <slot />
-      </main>
-      <SiteFooter class="site-footer-layer" />
-      <CircuitSvg class="site-circuit" />
-    </div>
+    <SiteNav class="site-nav" />
+    <main>
+      <slot />
+    </main>
+    <SiteFooter class="site-footer" />
+    <SiteCircuit class="site-circuit" />
   </body>
 </html>
 
 <style>
-  .site-layout {
+  body {
     position: relative;
     isolation: isolate;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+  }
+
+  main {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    min-height: 0;
   }
 
   .site-nav {
@@ -51,19 +54,13 @@ const {
     z-index: 3;
   }
 
-  .site-footer-layer {
+  .site-footer {
     position: relative;
     z-index: 2;
   }
 
-  .site-main {
-    position: relative;
-    z-index: 1;
-    flex: 1;
-    min-height: 0;
-  }
-
   .site-circuit {
+    position: fixed;
     z-index: 0;
   }
 </style>

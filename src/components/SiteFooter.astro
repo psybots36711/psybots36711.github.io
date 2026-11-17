@@ -3,7 +3,7 @@ const { class: className, ...rest } = Astro.props;
 const year = new Date().getFullYear();
 ---
 
-<footer class:list={["site-footer", className]} {...rest}>
+<footer class:list={[className]} {...rest}>
   <div class="footer-inner">
     <span>© {year} Psybots Robotics</span>
     <span>Team 36711</span>
@@ -11,7 +11,7 @@ const year = new Date().getFullYear();
 </footer>
 
 <style>
-  .site-footer {
+  footer {
     color: var(--color-text-muted);
     background: var(--color-surface);
     border-top: 1px solid var(--color-border);

@@ -1,0 +1,19 @@
+<section>
+  <slot />
+</section>
+
+<style>
+  section {
+    padding: 0 24px;
+    width: min(65ch, 100%);
+    margin: 0 auto;
+  }
+
+  section:first-of-type {
+    padding-block-start: 64px;
+  }
+
+  section:last-of-type {
+    padding-block-end: 48px;
+  }
+</style>

@@ -3,22 +3,20 @@ const { class: className, ...rest } = Astro.props;
 const isHome = Astro.url.pathname === "/";
 ---
 
-<header class:list={["site-header", className]} {...rest}>
+<header class:list={[className]} {...rest}>
   <div class="header-inner">
     <a class="brand" href="/" aria-current={isHome ? "page" : undefined}>
       Psybots 36711
     </a>
     <nav aria-label="Main navigation">
       <a href="/portfolio/">Portfolio</a>
-      <a class="contact-link" href="/contact/">
-        Contact
-      </a>
+      <a href="/contact/">Contact</a>
     </nav>
   </div>
 </header>
 
 <style>
-  .site-header {
+  header {
     position: relative;
     background: var(--color-surface);
     border-bottom: 1px solid var(--color-border);
@@ -61,18 +59,6 @@ const isHome = Astro.url.pathname === "/";
     color: var(--color-text-strong);
   }
 
-  nav .contact-link {
-    padding: 8px 14px;
-    color: var(--color-text-strong);
-    background: var(--color-accent);
-    border-radius: 6px;
-    transition: background-color 160ms ease;
-  }
-
-  nav .contact-link:hover {
-    background: var(--color-accent-hover);
-  }
-
   @media (max-width: 420px) {
     .header-inner {
       gap: 12px;
@@ -90,10 +76,6 @@ const isHome = Astro.url.pathname === "/";
 
     nav a {
       font-size: 0.9rem;
-    }
-
-    nav .contact-link {
-      padding: 7px 10px;
     }
   }
 </style>

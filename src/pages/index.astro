@@ -1,11 +1,12 @@
 ---
 import HomeHero from "@/components/HomeHero.astro";
 import SiteLayout from "@/layouts/SiteLayout.astro";
+import PageSection from "@/components/PageSection.astro";
 ---
 
 <SiteLayout>
   <HomeHero />
-  <section class="team-section">
+  <PageSection>
     <h2>Team 36711</h2>
     <p>We’re a robotics team building, learning, and competing together.</p>
     <p>Our new website is under construction</p>
@@ -48,16 +49,5 @@ import SiteLayout from "@/layouts/SiteLayout.astro";
       id. Cillum ex quidem dolorem ducimus cupidatat. Et sint molestias quas
       ullamco assumenda dolorum.
     </p>
-  </section>
+  </PageSection>
 </SiteLayout>
-
-<style>
-  .team-section {
-    min-height: 320px;
-    padding: 0 24px 48px;
-    width: 65ch;
-    max-width: 100%;
-    height: 2000px;
-    margin: 0 auto;
-  }
-</style>

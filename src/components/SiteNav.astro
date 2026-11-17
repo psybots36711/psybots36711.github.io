@@ -1,16 +1,30 @@
 ---
 const { class: className, ...rest } = Astro.props;
-const isHome = Astro.url.pathname === "/";
+const currentPath = Astro.url.pathname.replace(/\/$/, "");
+
+const isCurrent = (path: string) => {
+  const target = path.replace(/\/$/, "");
+  if (!target) {
+    return currentPath === "" ? "page" : undefined;
+  }
+  return currentPath === target || currentPath.startsWith(`${target}/`)
+    ? "page"
+    : undefined;
+};
 ---
 
 <header class:list={[className]} {...rest}>
   <div class="header-inner">
-    <a class="brand" href="/" aria-current={isHome ? "page" : undefined}>
+    <a class="brand" href="/" aria-current={isCurrent("/")}>
       Psybots 36711
     </a>
     <nav aria-label="Main navigation">
-      <a href="/portfolio/">Portfolio</a>
-      <a href="/contact/">Contact</a>
+      <a href="/portfolio/" aria-current={isCurrent("/portfolio")}>
+        Portfolio
+      </a>
+      <a href="/contact/" aria-current={isCurrent("/contact")}>
+        Contact
+      </a>
     </nav>
   </div>
 </header>
@@ -56,6 +70,10 @@ const isHome = Astro.url.pathname === "/";
   }
 
   nav a:hover {
+    color: var(--color-text-strong);
+  }
+
+  nav a[aria-current="page"] {
     color: var(--color-text-strong);
   }
 

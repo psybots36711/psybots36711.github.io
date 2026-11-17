@@ -24,6 +24,12 @@
   font-size: 16px;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   min-height: 100vh;
   margin: 0;
@@ -43,16 +49,7 @@ h6 {
   line-height: 1.2;
   margin-top: 1.5em;
   margin-bottom: 0.5em;
-  color: var(--color-text-strong);
-}
-
-h1,
-h2 {
-  background: var(--color-accent);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  width: fit-content;
+  color: var(--color-accent);
 }
 
 h1 {
@@ -131,12 +128,6 @@ p {
   color: var(--color-text);
   line-height: 1.6;
   margin: 0 0 1em 0;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
 }
 
 .visually-hidden {

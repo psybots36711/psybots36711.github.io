@@ -1,80 +1,65 @@
 ---
 import HomeHero from "@/components/HomeHero.astro";
-import CircuitSvg from "@/components/CircuitSvg.astro";
-import "@/styles/global.css";
+import SiteLayout from "@/layouts/SiteLayout.astro";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="The Psybots robotics team website." />
-    <meta name="theme-color" content="#10131a" />
-    <link rel="icon" type="image/avif" href="/psybots-favicon.avif" />
-    <title>Psybots Robotics</title>
-    <style>
-      .team-section {
-        min-height: 320px;
-        padding: 0 24px 48px;
-        background-color: #111214;
-        width: 65ch;
-        max-width: 100%;
-        height: 2000px;
-        margin: 0 auto;
-      }
-    </style>
-  </head>
-  <body>
-    <main>
-      <HomeHero />
-      <section class="team-section">
-        <h2>Team 36711</h2>
-        <p>We’re a robotics team building, learning, and competing together.</p>
-        <p>Our new website is under construction</p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipiscing elit. Magna
-          accusamus sunt provident labore eu ut nulla deleniti cum adipiscing
-          ducimus sint. Officia iusto dignissimos excepteur maxime cupidatat do
-          voluptas omnis incididunt eum est qui. Occaecat soluta placeat
-          voluptatum consectetur adipiscing dolore occaecat voluptatum sunt
-          dolorum consequatur.
-        </p>
+<SiteLayout>
+  <HomeHero />
+  <section class="team-section">
+    <h2>Team 36711</h2>
+    <p>We’re a robotics team building, learning, and competing together.</p>
+    <p>Our new website is under construction</p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipiscing elit. Magna
+      accusamus sunt provident labore eu ut nulla deleniti cum adipiscing
+      ducimus sint. Officia iusto dignissimos excepteur maxime cupidatat do
+      voluptas omnis incididunt eum est qui. Occaecat soluta placeat
+      voluptatum consectetur adipiscing dolore occaecat voluptatum sunt
+      dolorum consequatur.
+    </p>
 
-        <p>
-          Occaecat voluptate in mollitia aut assumenda. Fuga cupidatat id
-          laborum expedita voluptas ullamco ea. Quis culpa omnis laborum in
-          cumque tempor deleniti et expedita elit.
-        </p>
+    <p>
+      Occaecat voluptate in mollitia aut assumenda. Fuga cupidatat id
+      laborum expedita voluptas ullamco ea. Quis culpa omnis laborum in
+      cumque tempor deleniti et expedita elit.
+    </p>
 
-        <p>
-          Culpa atque quo nihil adipiscing tempore qui. In et et consequatur at
-          sed id. Cillum ex quidem dolorem ducimus cupidatat. Et sint molestias
-          quas ullamco assumenda dolorum.
-        </p>
+    <p>
+      Culpa atque quo nihil adipiscing tempore qui. In et et consequatur at
+      sed id. Cillum ex quidem dolorem ducimus cupidatat. Et sint molestias
+      quas ullamco assumenda dolorum.
+    </p>
 
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipiscing elit. Magna
-          accusamus sunt provident labore eu ut nulla deleniti cum adipiscing
-          ducimus sint. Officia iusto dignissimos excepteur maxime cupidatat do
-          voluptas omnis incididunt eum est qui. Occaecat soluta placeat
-          voluptatum consectetur adipiscing dolore occaecat voluptatum sunt
-          dolorum consequatur.
-        </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipiscing elit. Magna
+      accusamus sunt provident labore eu ut nulla deleniti cum adipiscing
+      ducimus sint. Officia iusto dignissimos excepteur maxime cupidatat do
+      voluptas omnis incididunt eum est qui. Occaecat soluta placeat
+      voluptatum consectetur adipiscing dolore occaecat voluptatum sunt
+      dolorum consequatur.
+    </p>
 
-        <p>
-          Occaecat voluptate in mollitia aut assumenda. Fuga cupidatat id
-          laborum expedita voluptas ullamco ea. Quis culpa omnis laborum in
-          cumque tempor deleniti et expedita elit.
-        </p>
+    <p>
+      Occaecat voluptate in mollitia aut assumenda. Fuga cupidatat id
+      laborum expedita voluptas ullamco ea. Quis culpa omnis laborum in
+      cumque tempor deleniti et expedita elit.
+    </p>
 
-        <p>
-          Culpa atque quo nihil adipiscing tempore qui. In et et consequatur at
-          sed id. Cillum ex quidem dolorem ducimus cupidatat. Et sint molestias
-          quas ullamco assumenda dolorum.
-        </p>
-      </section>
-      <CircuitSvg />
-    </main>
-  </body>
-</html>
+    <p>
+      Culpa atque quo nihil adipiscing tempore qui. In et et consequatur at
+      sed id. Cillum ex quidem dolorem ducimus cupidatat. Et sint molestias
+      quas ullamco assumenda dolorum.
+    </p>
+  </section>
+</SiteLayout>
+
+<style>
+  .team-section {
+    min-height: 320px;
+    padding: 0 24px 48px;
+    width: 65ch;
+    max-width: 100%;
+    height: 2000px;
+    margin: 0 auto;
+  }
+</style>

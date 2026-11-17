@@ -1,0 +1,101 @@
+---
+const { class: className, ...rest } = Astro.props;
+const isHome = Astro.url.pathname === "/";
+---
+
+<header class:list={["site-header", className]} {...rest}>
+  <div class="header-inner">
+    <a
+      class="brand"
+      href="/"
+      aria-current={isHome ? "page" : undefined}
+    >
+      Psybots 36711
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="/portfolio/">Portfolio</a>
+      <a class="contact-link" href="/contact/">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: relative;
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    max-width: 1200px;
+    min-height: 64px;
+    margin: 0 auto;
+    padding: 12px 24px;
+  }
+
+  .brand {
+    color: var(--color-text-strong);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(16px, 3vw, 32px);
+  }
+
+  nav a {
+    color: var(--color-link);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  nav a:hover {
+    color: var(--color-text-strong);
+  }
+
+  nav .contact-link {
+    padding: 8px 14px;
+    color: var(--color-text-strong);
+    background: var(--color-accent);
+    border-radius: 6px;
+    transition: background-color 160ms ease;
+  }
+
+  nav .contact-link:hover {
+    background: var(--color-accent-hover);
+  }
+
+  @media (max-width: 420px) {
+    .header-inner {
+      gap: 12px;
+      padding-right: 16px;
+      padding-left: 16px;
+    }
+
+    .brand {
+      font-size: 1rem;
+    }
+
+    nav {
+      gap: 12px;
+    }
+
+    nav a {
+      font-size: 0.9rem;
+    }
+
+    nav .contact-link {
+      padding: 7px 10px;
+    }
+  }
+</style>

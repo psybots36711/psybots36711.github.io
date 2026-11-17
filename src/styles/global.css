@@ -1,9 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
 
 :root {
+  color-scheme: dark;
+  --color-background: #111214;
+  --color-surface: #1a1d22;
+  --color-surface-raised: #24262a;
+  --color-border: #343943;
+
+  --color-text: #f3f3f3;
+  --color-text-strong: #ffffff;
+  --color-text-muted: #aeb6c2;
+
+  --color-accent: #245bff;
+  --color-accent-hover: #4f7cff;
+  --color-accent-glow: rgb(36 91 255 / 30%);
+  --color-link: #9bb8ff;
+  --color-focus: #c6d7ff;
+  --color-accent-secondary: #148bb1;
+  --color-circuit-light: #dde2e8;
+
+  --color-smoke-highlight: #858c9a;
+  --color-smoke-shadow: #525c6d;
+
   font-size: 16px;
-  color: #f3f3f3;
-  background: #111214;
 }
 
 body {
@@ -12,6 +31,8 @@ body {
   margin: 0;
   font-family: "Barlow", sans-serif;
   font-size: calc(18rem / 16);
+  color: var(--color-text);
+  background: var(--color-background);
 }
 
 h1,
@@ -24,12 +45,13 @@ h6 {
   line-height: 1.2;
   margin-top: 1.5em;
   margin-bottom: 0.5em;
-  color: #ffffff;
+  color: var(--color-text-strong);
 }
 
 h1,
 h2 {
-  background: #1e57ff;
+  background: var(--color-accent);
+  -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   width: fit-content;
@@ -69,7 +91,46 @@ h6 {
   letter-spacing: 0.05em;
 }
 
+a {
+  color: var(--color-link);
+  text-underline-offset: 0.18em;
+  transition: color 160ms ease;
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+button {
+  border: 0;
+  border-radius: 6px;
+  padding: 8px 14px;
+  color: var(--color-text-strong);
+  background: var(--color-accent);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 160ms ease;
+}
+
+button:hover:not(:disabled) {
+  background: var(--color-accent-hover);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
 p {
+  color: var(--color-text);
   line-height: 1.6;
   margin: 0 0 1em 0;
 }
@@ -94,4 +155,11 @@ main {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+.content-page {
+  width: min(65ch, 100%);
+  min-height: 60vh;
+  margin: 0 auto;
+  padding: 64px 24px;
 }

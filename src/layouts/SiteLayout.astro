@@ -1,0 +1,69 @@
+---
+import SiteNav from "@/components/SiteNav.astro";
+import SiteFooter from "@/components/SiteFooter.astro";
+import CircuitSvg from "@/components/CircuitSvg.astro";
+import "@/styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Psybots 36711",
+  description = "The Psybots robotics team website.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#111214" />
+    <link rel="icon" type="image/avif" href="/psybots-favicon.avif" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="site-layout">
+      <SiteNav class="site-nav" />
+      <main class="site-main">
+        <slot />
+      </main>
+      <SiteFooter class="site-footer-layer" />
+      <CircuitSvg class="site-circuit" />
+    </div>
+  </body>
+</html>
+
+<style>
+  .site-layout {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .site-nav {
+    position: relative;
+    z-index: 3;
+  }
+
+  .site-footer-layer {
+    position: relative;
+    z-index: 2;
+  }
+
+  .site-main {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    min-height: 0;
+  }
+
+  .site-circuit {
+    z-index: 0;
+  }
+</style>

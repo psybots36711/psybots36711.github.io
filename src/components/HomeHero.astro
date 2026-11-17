@@ -6,7 +6,7 @@
     place-items: center;
     padding: 24px;
     overflow: hidden;
-    background: #24262a;
+    background: var(--color-surface-raised);
   }
 
   .lightning,
@@ -29,12 +29,12 @@
   @keyframes logo-emerge {
     from {
       opacity: 0;
-      filter: blur(24px) drop-shadow(0 0 100px rgb(36 91 255 / 30%))
+      filter: blur(24px) drop-shadow(0 0 100px var(--color-accent-glow))
         drop-shadow(0 0 1px rgb(255 255 255 / 65%));
     }
     to {
       opacity: 1;
-      filter: blur(0) drop-shadow(0 0 100px rgb(36 91 255 / 30%))
+      filter: blur(0) drop-shadow(0 0 100px var(--color-accent-glow))
         drop-shadow(0 0 1px rgb(255 255 255 / 65%));
     }
   }
@@ -47,7 +47,7 @@
     width: 448px;
     max-width: 100%;
     height: auto;
-    filter: drop-shadow(0 0 100px rgb(36 91 255 / 30%))
+    filter: drop-shadow(0 0 100px var(--color-accent-glow))
       drop-shadow(0 0 1px rgb(255 255 255 / 65%));
     animation: logo-emerge 1.7s 0.4s both linear;
   }
@@ -61,20 +61,28 @@
 
   .glow {
     fill: none;
-    stroke: #245bff;
+    stroke: var(--color-accent);
     stroke-width: 10;
     stroke-linecap: round;
     stroke-linejoin: round;
-    filter: blur(4px) drop-shadow(0 0 14px #245bff);
+    filter: blur(4px) drop-shadow(0 0 14px var(--color-accent));
   }
 
   .core {
     fill: none;
-    stroke: #f3f3f3;
+    stroke: var(--color-text);
     stroke-width: 2.5;
     stroke-linecap: round;
     stroke-linejoin: round;
-    filter: drop-shadow(0 0 5px #fff) drop-shadow(0 0 12px #245bff);
+    filter: drop-shadow(0 0 5px var(--color-text-strong)) drop-shadow(0 0 12px var(--color-accent));
+  }
+
+  .smoke-highlight {
+    stop-color: var(--color-smoke-highlight);
+  }
+
+  .smoke-shadow {
+    stop-color: var(--color-smoke-shadow);
   }
 
   .smoke {
@@ -144,9 +152,9 @@
   >
     <defs>
       <radialGradient id="smoke-gradient" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stop-color="#858c9a" stop-opacity="0.55" />
-        <stop offset="58%" stop-color="#525c6d" stop-opacity="0.34" />
-        <stop offset="100%" stop-color="#525c6d" stop-opacity="0" />
+        <stop offset="0%" class="smoke-highlight" stop-color="#858c9a" stop-opacity="0.55" />
+        <stop offset="58%" class="smoke-shadow" stop-color="#525c6d" stop-opacity="0.34" />
+        <stop offset="100%" class="smoke-shadow" stop-color="#525c6d" stop-opacity="0" />
       </radialGradient>
       <filter id="smoke-blur" x="-30%" y="-50%" width="160%" height="200%">
         <feGaussianBlur stdDeviation="22" />

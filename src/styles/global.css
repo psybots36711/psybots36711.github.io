@@ -29,11 +29,7 @@ h6 {
 
 h1,
 h2 {
-  background: linear-gradient(
-    90deg,
-    #1c57fe,
-    hsl(from #1c57fe h s calc(l + 20))
-  );
+  background: #1e57ff;
   background-clip: text;
   color: transparent;
   width: fit-content;

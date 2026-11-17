@@ -29,11 +29,13 @@
   @keyframes logo-emerge {
     from {
       opacity: 0;
-      filter: blur(24px) drop-shadow(0 0 24px rgb(36 91 255 / 30%));
+      filter: blur(24px) drop-shadow(0 0 100px rgb(36 91 255 / 30%))
+        drop-shadow(0 0 1px rgb(255 255 255 / 65%));
     }
     to {
       opacity: 1;
-      filter: blur(0) drop-shadow(0 0 24px rgb(36 91 255 / 30%));
+      filter: blur(0) drop-shadow(0 0 100px rgb(36 91 255 / 30%))
+        drop-shadow(0 0 1px rgb(255 255 255 / 65%));
     }
   }
 
@@ -45,7 +47,8 @@
     width: 448px;
     max-width: 100%;
     height: auto;
-    filter: drop-shadow(0 0 24px rgb(36 91 255 / 30%));
+    filter: drop-shadow(0 0 100px rgb(36 91 255 / 30%))
+      drop-shadow(0 0 1px rgb(255 255 255 / 65%));
     animation: logo-emerge 1.7s 0.4s both linear;
   }
 

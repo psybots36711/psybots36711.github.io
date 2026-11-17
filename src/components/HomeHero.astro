@@ -74,7 +74,8 @@
     stroke-width: 2.5;
     stroke-linecap: round;
     stroke-linejoin: round;
-    filter: drop-shadow(0 0 5px var(--color-text-strong)) drop-shadow(0 0 12px var(--color-accent));
+    filter: drop-shadow(0 0 5px var(--color-text-strong))
+      drop-shadow(0 0 12px var(--color-accent));
   }
 
   .smoke-highlight {
@@ -152,9 +153,24 @@
   >
     <defs>
       <radialGradient id="smoke-gradient" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" class="smoke-highlight" stop-color="#858c9a" stop-opacity="0.55" />
-        <stop offset="58%" class="smoke-shadow" stop-color="#525c6d" stop-opacity="0.34" />
-        <stop offset="100%" class="smoke-shadow" stop-color="#525c6d" stop-opacity="0" />
+        <stop
+          offset="0%"
+          class="smoke-highlight"
+          stop-color="#858c9a"
+          stop-opacity="0.55"
+        />
+        <stop
+          offset="58%"
+          class="smoke-shadow"
+          stop-color="#525c6d"
+          stop-opacity="0.34"
+        />
+        <stop
+          offset="100%"
+          class="smoke-shadow"
+          stop-color="#525c6d"
+          stop-opacity="0"
+        />
       </radialGradient>
       <filter id="smoke-blur" x="-30%" y="-50%" width="160%" height="200%">
         <feGaussianBlur stdDeviation="22" />

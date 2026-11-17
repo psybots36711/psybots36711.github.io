@@ -5,16 +5,14 @@ const isHome = Astro.url.pathname === "/";
 
 <header class:list={["site-header", className]} {...rest}>
   <div class="header-inner">
-    <a
-      class="brand"
-      href="/"
-      aria-current={isHome ? "page" : undefined}
-    >
+    <a class="brand" href="/" aria-current={isHome ? "page" : undefined}>
       Psybots 36711
     </a>
     <nav aria-label="Main navigation">
       <a href="/portfolio/">Portfolio</a>
-      <a class="contact-link" href="/contact/">Contact</a>
+      <a class="contact-link" href="/contact/">
+        Contact
+      </a>
     </nav>
   </div>
 </header>
